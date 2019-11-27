@@ -14,12 +14,12 @@ const storage = multer.diskStorage({
 	}
 });
 
-// Upload
+// Initial Upload
 const upload = multer({
 	storage: storage
 }).single("file");
 
-// INIT
+// APP INIT
 const app = express();
 const port = 3000;
 app.set("view engine", "ejs");
