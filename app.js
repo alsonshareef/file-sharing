@@ -3,6 +3,8 @@ const multer = require("multer");
 const ejs = require("ejs");
 const path = require("path");
 
+// --- MULTER SETUP --- //
+
 // Set Storage Engine
 const storage = multer.diskStorage({
 	destination: "./public/uploads/",
@@ -19,7 +21,8 @@ const upload = multer({
 	storage: storage
 }).single("file");
 
-// APP INIT
+// --- APP SETUP --- //
+
 const app = express();
 const port = 3000;
 app.set("view engine", "ejs");
