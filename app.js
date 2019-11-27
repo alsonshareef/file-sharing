@@ -5,20 +5,21 @@ const path = require("path");
 
 // --- MULTER SETUP --- //
 
-// Set Storage Engine
-const storage = multer.diskStorage({
-	destination: "./public/uploads/",
-	filename: (req, file, callback) => {
-		callback(
-			null,
-			file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-		);
-	}
-});
-
-// Initial Upload
+// Upload
 const upload = multer({
-	storage: storage
+	// Setting storage engine to disk storage with desired location and filename.
+	storage: multer.diskStorage({
+		destination: "./public/uploads/",
+		filename: (req, file, callback) => {
+			callback(
+				null,
+				file.fieldname +
+					"-" +
+					Date.now() +
+					path.extname(file.originalname)
+			);
+		}
+	})
 }).single("file");
 
 // --- APP SETUP --- //
