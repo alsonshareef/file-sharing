@@ -37,8 +37,9 @@ app.post("/upload", (req, res) => {
 				msg: err
 			});
 		} else {
-			console.log(req.file);
-			res.send("test");
+			console.log("Uploaded File Description:", req.body.name);
+			console.log("Uploaded File Data:", req.file);
+			res.send("File was uploaded! Check your public/uploads directory.");
 		}
 	});
 });
